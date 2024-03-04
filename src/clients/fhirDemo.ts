@@ -26,6 +26,10 @@ async function run() {
     args: [exampleProofRequest],
     // in practice, use a meaningful business ID, like customerId or transactionId
     workflowId: 'workflow-' + nanoid(),
+    searchAttributes: {
+      ResourceId: ['0x1'],
+      PublicKey: ['B64'],
+    },
   });
   console.log(`Started workflow ${handle.workflowId}`);
 
