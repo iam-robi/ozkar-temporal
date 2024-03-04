@@ -1,4 +1,5 @@
 import { NativeConnection, Worker } from '@temporalio/worker';
+
 import * as activities from './activities';
 import { TASK_QUEUE_NAME } from './shared';
 
@@ -19,8 +20,8 @@ async function run() {
     // Workflows are registered using a path as they run in a separate JS context.
     workflowsPath: require.resolve('./workflows'),
     activities,
-    // maxConcurrentActivityTaskExecutions: 1,
-    // maxConcurrentLocalActivityExecutions: 1,
+    maxConcurrentActivityTaskExecutions: 1,
+    maxConcurrentLocalActivityExecutions: 1,
     reuseV8Context: true,
   });
 

@@ -1,5 +1,5 @@
 import { Resource as FhirResource } from '@medplum/fhirtypes';
-import { MerkleMapFactory, Verification, Backend, Query as ZkQuery, IPLD } from 'ozkar-zerkle';
+import { MerkleMapFactory, Verification, Backend, Query as ZkQuery, IPLD } from '@ozkarjs/zerkle';
 // Add Activity Definitions here.
 
 export type RawQueryObject = {
@@ -17,22 +17,11 @@ export type ProofRequest = {
   resource: FhirResource;
 };
 
-import { Field } from 'o1js';
-
-export async function computeProof(proofRequest: ProofRequest): Promise<ProofRequest> {
+export async function computeFhirProof(proofRequest: ProofRequest): Promise<any> {
   //console.log(IPLD.LinearModel.fromJS(proofRequest));
-  const map = MerkleMapFactory.fromLinearModel(
-    IPLD.LinearModel.fromJS({
-      a: 10,
-      b: 20,
-    })
-  );
-
+  const map = MerkleMapFactory.fromLinearModel(IPLD.LinearModel.fromJS(proofRequest.resource));
   // // Incoming public stuff
-  const q = ZkQuery.parse({
-    '/a': { $eq: 10 },
-    '/b': { $ge: 20 },
-  });
+  const q = ZkQuery.parse(proofRequest.query);
 
   console.time('compile');
   const backend = await Backend.compile();
@@ -56,5 +45,5 @@ export async function computeProof(proofRequest: ProofRequest): Promise<ProofReq
   console.log('a', proof, verification);
   console.log('q', q);
   console.log(map);
-  return proofRequest;
+  return proof;
 }

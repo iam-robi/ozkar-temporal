@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@medplum/fhirtypes": "^3.0.3",
+    "@ozkarjs/zerkle": "^1.0.0",
     "@temporalio/activity": "^1.9.0",
     "@temporalio/client": "^1.9.0",
     "@temporalio/worker": "^1.9.0",
@@ -31,7 +32,6 @@
     "multiformats": "^13.1.0",
     "nanoid": "3.x",
     "o1js": "^0.16.2",
-    "ozkar-zerkle": "^0.0.9",
     "ts-essentials": "^9.4.1",
     "uvu": "^0.5.6"
   },
