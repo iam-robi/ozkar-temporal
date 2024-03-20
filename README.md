@@ -1,9 +1,13 @@
 # Custom Search Attributes
 
+Create namespace 
+```bash
+temporal operator namespace create ozkar-dev
+```
 add the required custom search attributes to the temporal cluster:
 
 ```bash
-temporal operator namespace create ozkar-dev && temporal operator search-attribute create --name ResourceId --type Keyword --namespace ozkar-dev && temporal operator search-attribute create --name PublicKey --type Keyword --namespace ozkar-dev
+temporal operator search-attribute create --name ResourceId --type Keyword --namespace ozkar-dev && temporal operator search-attribute create --name PublicKey --type Keyword --namespace ozkar-dev
 ```
 
 
