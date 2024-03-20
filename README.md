@@ -3,14 +3,17 @@
 add the required custom search attributes to the temporal cluster:
 
 ```bash
-temporal operator search-attribute create --name ResourceId --type Keyword --namespace ozkar-dev && temporal operator search-attribute create --name PublicKey --type Keyword --namespace ozkar-dev
+temporal operator namespace create ozkar-dev && temporal operator search-attribute create --name ResourceId --type Keyword --namespace ozkar-dev && temporal operator search-attribute create --name PublicKey --type Keyword --namespace ozkar-dev
 ```
+
 
 ## Running the code
 
 Install dependencies with `npm install`.
 
 Run `temporal server start-dev` to start [Temporal Server](https://github.com/temporalio/cli/#installation).
+
+UI should be available at http://localhost:8233
 
 The `package.json` file contains scripts for running the client, the Worker, and tests.
 
