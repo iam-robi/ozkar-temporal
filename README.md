@@ -15,7 +15,7 @@ temporal operator search-attribute create --name ResourceId --type Keyword --nam
 
 Install dependencies with `npm install`.
 
-Run `temporal server start-dev` to start [Temporal Server](https://github.com/temporalio/cli/#installation).
+Run `temporal server start-dev --db-filename temporal.db` to start [Temporal Server](https://github.com/temporalio/cli/#installation).
 
 UI should be available at http://localhost:8233
 
